@@ -1,0 +1,6 @@
+*.box
+era/
+2000/
+bc/
+figures/
+*.pyc

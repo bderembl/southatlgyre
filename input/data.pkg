@@ -1,0 +1,10 @@
+#!sh Packages
+ &PACKAGES
+ useOBCS=.TRUE.,
+ useMNC=.FALSE.,
+ useDIAGNOSTICS=.TRUE.,
+ useCHEAPAML=.TRUE.,
+ useKPP=.TRUE.,
+ useggl90=.FALSE.,
+ usePTRACERS=.FALSE.
+ &end

@@ -1,0 +1,50 @@
+#!sh Open-boundaries
+ &OBCS_PARM01
+OB_Ieast=420*-1,
+OB_Iwest=420*1,
+OB_Jnorth=1120*-1,
+OB_Jsouth=1120*1,
+useOrlanskiEast=.FALSE.,
+useOrlanskiWest=.FALSE.,
+useOrlanskiNorth=.FALSE.,
+useOrlanskiSouth=.FALSE.,
+useOBCSprescribe=.TRUE.,
+useOBCSsponge=.TRUE.,
+useOBCSbalance=.TRUE.,
+# North
+ OBNuFile   ='u_n.box',
+ OBNvFile   ='v_n.box',
+ OBNtFile   ='t_n.box',
+ OBNsFile   ='s_n.box',
+# South
+ OBSuFile   ='u_s.box',
+ OBSvFile   ='v_s.box',
+ OBStFile   ='t_s.box',
+ OBSsFile   ='s_s.box',
+# East
+ OBEuFile   ='u_e.box',
+ OBEvFile   ='v_e.box',
+ OBEtFile   ='t_e.box',
+ OBEsFile   ='s_e.box',
+# West
+ OBWuFile   ='u_w.box',
+ OBWvFile   ='v_w.box',
+ OBWtFile   ='t_w.box',
+ OBWsFile   ='s_w.box',
+ &end
+
+# # Orlanski parameters
+# &OBCS_PARM02
+# Cmax=0.45,
+# cVelTimeScale=1000.,
+# &end
+
+# SPONGE parameters
+ &OBCS_PARM03
+ spongeThickness=5,
+ Urelaxobcsinner=86400,
+ Vrelaxobcsinner=86400,
+# 6h
+ Urelaxobcsbound=600,
+ Vrelaxobcsbound=600,
+ &end

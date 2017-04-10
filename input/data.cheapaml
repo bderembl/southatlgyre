@@ -1,0 +1,45 @@
+#!sh  CheapAML
+ &CHEAPAML_CONST
+ cheapaml_ntim = 6		
+ cheapaml_mask_width=5
+ cheapaml_h = 1000.
+ cheapaml_kdiff = 1000.
+# land10 min
+ cheapaml_taurelax = .007,
+# ocean 1 day
+ cheapaml_taurelaxocean = 0.01,			
+ &end
+
+ &CHEAPAML_PARM01
+ UWindFile='u10.box'
+ VWindFile='v10.box'
+ SolarFile='ssrd.box'
+ AirTempFile='t2.box'
+# AirTempFile='tch_restart.box'
+#same file for Tr
+ TrFile='t2.box'
+ AirQFile='d2.box'
+# AirQFile='qch_restart.box'
+#same file for Qr
+ QrFile='d2.box'
+#cheap_hfile='blh.box'
+#cheap_clfile='clouds.box'
+cheap_dlwfile='strd.box'
+ periodicExternalForcing_cheap=.TRUE.,
+# 6Hours
+ externForcingPeriod_cheap=21600,
+# 362 days
+# externForcingCycle_cheap=31557600
+#366
+ externForcingCycle_cheap=31622400
+
+ &end
+ 
+ &CHEAPAML_PARM02 
+ FluxFormula='COARE3'
+ useFreshWaterFlux=.TRUE.,
+ useFluxLimit=.TRUE.,
+ usetimevarblh=.FALSE.,
+ useclouds=.FALSE.,
+ usedlongwave=.TRUE.,
+ &end
