@@ -12,10 +12,11 @@ import cartopy.crs as ccrs
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 plt.ion()
 
-dir0 = '/run/media/bderembl/girtab/southatlgyre/test_southatlgyre02/'
+#dir0 = '/run/media/bderembl/girtab/southatlgyre/test_southatlgyre02/'
+dir0 = '/home/bderembl/work/MITgcm/myrun/southatlgyre/climserv/'
 
 #ERA files
-dir0_era = '/home/bderembl/work/MITgcm/myrun/test_southatlgyre/input/files/era/'
+dir0_era = '/home/bderembl/work/MITgcm/myrun/southatlgyre/input/files/era/'
 
 # read mitgcm input
 nml_mit = f90nml.read(dir0 + 'data')
@@ -40,7 +41,7 @@ xx[:,0] = lat_g.flat
 xx[:,1] = lon_g.flat
 
 # select iteration
-it_m = 15
+it_m = 5
 # initial state not stored:
 it_a = it_m - 1 
 
@@ -119,11 +120,12 @@ for nv in range(0,nvars):
 
 # read mitgcm
 
+var = 'CH_TAIR'
+nt = -1
+
 plt.figure()
 ax = plt.subplot(projection=ccrs.PlateCarree());
-ds_v.Eta[-1,:,:].plot.pcolormesh('XC', 'YC', ax=ax,vmin=-1);
-#ds.U[0,0,:,:].plot.pcolormesh('XG', 'YC', ax=ax);
-#ds_v['T'].where(ds_v.hFacC>0)[17,0,:,:].plot.pcolormesh('XC', 'YC', ax=ax);
+ds_a[var][nt,:,:].plot.pcolormesh('XC', 'YC', ax=ax);
 ax.coastlines();
 gl = ax.gridlines(draw_labels=True, alpha = 0.5, linestyle='--');
 gl.xlabels_top = False
